@@ -1,0 +1,449 @@
+ html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>100 Ways to Say Sorry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --bg1: #080a26;
+        --bg2: #2b0f40;
+        --gold: #d9a85f;
+        --ink: #d8d2f2;
+        --muted: #9b93c4;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+        height: 100%
+    }
+
+    body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #080a26 radial-gradient(ellipse at 50% 35%, var(--bg2), var(--bg1) 72%);
+        color: var(--ink);
+        font-family: Poppins, system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: #fff;
+        opacity: .4;
+        animation: tw 4s ease-in-out infinite
+    }
+
+    @keyframes tw {
+        50% {
+            opacity: .08
+        }
+    }
+
+    #wheel {
+        --s: min(96vw, calc(100vh - 120px));
+        position: relative;
+        width: var(--s);
+        height: var(--s);
+        flex: none
+    }
+
+    #wheel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1.5px solid var(--gold);
+        border-radius: 50%;
+        box-shadow: 0 0 30px rgba(217, 168, 95, .18)
+    }
+
+    .spoke {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 0;
+        width: calc(var(--s) * .48);
+        transform-origin: 0 0
+    }
+
+    .spoke span {
+        position: absolute;
+        left: calc(var(--s) * .235);
+        top: 0;
+        width: calc(var(--s) * .245);
+        transform: translateY(-50%);
+        white-space: nowrap;
+        line-height: 1;
+        text-align: left;
+        color: var(--ink);
+        opacity: 0;
+        translate: -16px 0;
+        transition: opacity .7s, translate .7s, color .35s, text-shadow .35s;
+    }
+
+    .spoke span.flip {
+        transform: translateY(-50%) rotate(180deg);
+        text-align: right
+    }
+
+    .spoke span.on {
+        opacity: .6;
+        translate: 0 0
+    }
+
+    .spoke span.now {
+        opacity: 1;
+        color: var(--gold);
+        text-shadow: 0 0 8px rgba(217, 168, 95, .9)
+    }
+
+    #center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: calc(var(--s) * .44);
+        height: calc(var(--s) * .44);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid rgba(217, 168, 95, .25);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 calc(var(--s) * .05);
+        box-sizing: border-box;
+    }
+
+    #center .title {
+        font-size: calc(var(--s) * .0155);
+        letter-spacing: .28em;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: calc(var(--s) * .035)
+    }
+
+    #line {
+        font-family: "Playfair Display", Georgia, serif;
+        font-style: italic;
+        color: #fff;
+        font-size: calc(var(--s) * .046);
+        line-height: 1.2;
+        min-height: 2.4em;
+        display: flex;
+        align-items: center;
+    }
+
+    #line.in {
+        animation: rise .6s ease both
+    }
+
+    @keyframes rise {
+        from {
+            opacity: 0;
+            transform:translateY(10px)
+        }
+
+        to {
+            opacity: 1;
+            transform: none
+        }
+    }
+
+    #center hr {
+        width: calc(var(--s) * .09);
+        border: 0;
+        border-top: 1px solid rgba(217, 168, 95, .5);
+        margin: calc(var(--s) * .025) 0 calc(var(--s) * .02)
+    }
+
+    #num {
+        font-size: calc(var(--s) * .019);
+        color: var(--muted);
+        letter-spacing: .12em
+    }
+
+    .ctrl {
+        display: flex;
+        gap: 10px;
+        z-index: 2
+    }
+
+    .ctrl button {
+        font: 500 13px Poppins, system-ui, sans-serif;
+        color: var(--ink);
+        background: rgba(255, 255, 255, .07);
+        border: 1px solid rgba(217, 168, 95, .45);
+        border-radius: 999px;
+        padding: 9px 18px;
+        cursor: pointer;
+    }
+
+    .ctrl button:hover {
+        background: rgba(217, 168, 95, .2)
+    }
+
+    .ctrl button:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 2px
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .star {
+            animation:none
+        }
+
+        #line.in {
+            animation:none
+        }
+
+        .spoke span {
+            transition: none
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div id="wheel">
+        <div id="center">
+            <div class="title">100 WAYS TO SAY SORRY</div>
+            <div id="line"></div>
+            <hr>
+            <div id="num"></div>
+        </div>
+    </div>
+    <div class="ctrl">
+        <button id="pause">Pause</button>
+        <button id="replay">Replay</button>
+    </div>
+
+    <script>
+    const T = `I’m sorry.
+    Please forgive me.
+    I was wrong.
+    I’m so sorry.
+    That was my mistake.
+    I take full responsibility.
+    I owe you an apology.
+    I should have listened.
+    I didn’t mean to hurt you.
+    I let you down.
+    I’m truly sorry.
+    I messed up.
+    I regret my words.
+    I was selfish.
+    I should have been there.
+    I’m sorry for yelling.
+    I wasn’t honest.
+    I wasn’t thinking of you.
+    I handled it badly.
+    I’m ashamed of how I acted.
+    You deserved better.
+    I broke my promise.
+    I forgot, and I’m sorry.
+    I put my pride first.
+    I didn’t call.
+    I was unfair to you.
+    I judged you too quickly.
+    I should have trusted you.
+    I interrupted you.
+    It wasn’t fair of me.
+    I was distant.
+    I came late again.
+    I let it slide.
+    I said things I didn’t mean.
+    I should have asked first.
+    I didn’t see your side.
+    I made you worry.
+    I stayed silent.
+    My words were unkind.
+    I was too proud to say it.
+    I was careless with you.
+    I’m sorry I broke your trust.
+    I hurt someone I love.
+    I wasn’t listening.
+    I should have said it sooner.
+    I look back and I’m sorry.
+    No excuses, just sorry.
+    I want to make it right.
+    Let me make it up to you.
+    I’m here to listen now.
+    I’ll do better.
+    I promise to be more patient.
+    I’m learning from this.
+    Tell me how to fix it.
+    I miss you, and I’m sorry.
+    You matter more than winning.
+    I can’t lose you over this.
+    I’m sorry for the hurt.
+    I’m sorry for the tears.
+    I wish I could undo it.
+    I’d take it back if I could.
+    I was scared and lashed out.
+    I let stress speak for me.
+    I’m sorry I wasn’t kind.
+    You didn’t deserve that.
+    It was never your fault.
+    I blamed you, and I’m sorry.
+    I compared us, and I’m sorry.
+    I overreacted.
+    I misunderstood you.
+    I should have shown up.
+    I wasn’t there when it counted.
+    I forgot what mattered.
+    I was busy, not kind.
+    I took you for granted.
+    I made it about me.
+    I made you feel small.
+    I didn’t protect your feelings.
+    I let the silence grow.
+    I’m sorry for the bad timing.
+    I let a grudge win.
+    I let you carry it alone.
+    I’m sorry I doubted you.
+    I acted without thinking.
+    I owe you the truth.
+    I should have spoken up.
+    I’m sorry I hid it.
+    I was too stubborn.
+    I’m sorry it took this long.
+    Give me another chance.
+    You can trust me again.
+    I’m ready to talk.
+    I’m grateful for you.
+    I love you, and I’m sorry.
+    Can we start over?
+    Forgive me when you can.
+    My heart is with you.
+    I’m sorry from my heart.
+    I’ll never stop trying.
+    I’m sorry. Always.`.trim().split("\n");
+
+    const N = T.length,
+        STEP = 650;
+    const wheel = document.getElementById("wheel");
+    const line = document.getElementById("line");
+    const num = document.getElementById("num");
+    const pauseBtn = document.getElementById("pause");
+    const spans = [];
+    let i = 0,
+        timer = null,
+        sweepTimer = null,
+        paused = false,
+        cur = -1;
+
+    // stars
+    for (let k = 0; k < 60; k++) {
+        const s = document.createElement("i");
+        s.className = "star";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        s.style.animationDelay = Math.random() * 4 + "s";
+        document.body.prepend(s);
+    }
+
+    // build spokes, clockwise from the top
+    T.forEach((txt, k) => {
+        const a = ((-90 + k * 360 / N) + 360) % 360;
+        const d = document.createElement("div");
+        d.className = "spoke";
+        d.style.transform = `rotate(${a}deg)`;
+        const s = document.createElement("span");
+        s.textContent = txt;
+        if (a > 90 && a < 270)
+            s.classList.add("flip");
+        d.appendChild(s);
+        wheel.appendChild(d);
+        spans.push(s);
+    });
+
+    // size text so every sentence fits its spoke
+    function fit() {
+        const S = wheel.clientWidth,
+            base = Math.max(3.5, S * 0.0122),
+            avail = S * 0.245;
+        spans.forEach(s => {
+            s.style.fontSize = base + "px";
+            const w = s.scrollWidth;
+            if (w > avail)
+                s.style.fontSize = base * avail / w + "px";
+        });
+    }
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fit);
+    fit();
+    addEventListener("resize", fit);
+
+    function setLine(k) {
+        line.classList.remove("in");
+        void line.offsetWidth;
+        line.textContent = T[k];
+        num.textContent = "N° " + (k + 1);
+        line.classList.add("in");
+    }
+    function mark(k) {
+        if (cur >= 0)
+            spans[cur].classList.remove("now");
+        cur = k;
+        spans[k].classList.add("on", "now");
+    }
+
+    function tick() {
+        if (paused)
+            return;
+        if (i < N) {
+            mark(i);
+            setLine(i);
+            i++;
+            timer = setTimeout(tick, STEP);
+        } else {
+            finish();
+        }
+    }
+
+    // finale: a golden highlight sweeps round the full circle
+    function finish() {
+        setLine(N - 1);
+        let j = 0;
+        sweepTimer = setInterval(() => {
+            if (!paused)
+                mark(j++ % N);
+        }, 70);
+    }
+
+    function start() {
+        clearTimeout(timer);
+        clearInterval(sweepTimer);
+        spans.forEach(s => s.classList.remove("on", "now"));
+        i = 0;
+        cur = -1;
+        paused = false;
+        pauseBtn.textContent = "Pause";
+        line.textContent = "";
+        num.textContent = "";
+        timer = setTimeout(tick, 600);
+    }
+
+    pauseBtn.onclick = () => {
+        paused = !paused;
+        pauseBtn.textContent = paused ? "Play" : "Pause";
+        if (!paused && i < N)
+            tick();
+    };
+    document.getElementById("replay").onclick = start;
+    start();
+    </script>
+</body>
+</html>
